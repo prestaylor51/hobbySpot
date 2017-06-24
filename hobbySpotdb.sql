@@ -8,6 +8,12 @@
 -- grant usage, select on sequence student_mentor_id_seq to hobbyist;
 -- grant usage, select on sequence hobby_mentor_id_seq to hobbyist;
 
+-- SELECT u.first, u.last, l.town, hm.mentor_id, h.name, hm.greeting FROM _user u 
+-- 	JOIN hobby_mentor hm ON u.id = hm.mentor_id
+-- 	JOIN hobby h ON h.id = hm.hobby_id
+-- 	JOIN location l ON u.location_id = l.id
+-- 	WHERE h.name = 'Chess'; 
+
 DROP TABLE location, hobby, _user, student_mentor, hobby_mentor	CASCADE;
 
 CREATE TABLE location
@@ -28,7 +34,7 @@ CREATE TABLE _user
  last   	VARCHAR(100)     NOT NULL,
  phone	    VARCHAR(10),
  email      VARCHAR(100)     NOT NULL,
- location   INT              REFERENCES location(id),
+ location_id   INT              REFERENCES location(id),
  password	VARCHAR(80)      NOT NULL);
 
 CREATE TABLE hobby_mentor
@@ -65,17 +71,19 @@ VALUES
 -- INSERT _user --
 
 INSERT INTO _user
-(username, first, last, phone, email, location, password) 
+(username, first, last, phone, email, location_id, password) 
 VALUES
 ('admin', 'Preston', 'Taylor', '1111111111', 'admin@mail.com', 1, 'password'),
-('jman123', 'John', 'Jones', '2222222222','jman123@gmail.net', 1, 'password');
+('jman123', 'John', 'Jones', '2222222222','jman123@gmail.net', 1, 'password'),
+('mpool', 'Matt', 'Pool', '3333333333','mpool@gmail.net', 1, 'password');
 
 -- INSERT hobby_mentor --
 
 INSERT INTO hobby_mentor
 (hobby_id, mentor_id, greeting)
 VALUES
-(1, 2, 'Hello, I''m John. I love the game of chess. I played for 4 years i high school and competed in the state championship.');
+(1, 2, 'Hello, I''m John. I love the game of chess. I played for 4 years i high school and competed in the state championship.'),
+(1, 3, 'Sup bros I love chess! I love to teach it too!');
 
 -- INSERT student_mentor --
 
