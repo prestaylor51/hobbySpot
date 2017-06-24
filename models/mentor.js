@@ -39,12 +39,9 @@ function getAllMentors(hobby,callback) {
 				callback(err, null);
 			}
 
-			console.log("Results: " + JSON.stringify(null, result.rows));
+			console.log("Results: " + JSON.stringify(result.rows));
 			callback(null, result.rows);
 		});
-
-		
-
 }
 
 module.exports = {
