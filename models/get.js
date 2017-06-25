@@ -1,21 +1,39 @@
 // Model for getting the mentors from the database
 // Postgres
 var pg = require('pg');
-const connectionString = "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
+const connectionString = "postgres://postgres:danGer95@localhost:5432/hobbyspotdb";
 
 function getAllMentors(hobby,callback) {
 		
-		var client = new pg.Client(connectionString);
 
-		client.connect(function(err) {
+		pg.defaults.ssl = true;
+		pg.connect(process.env.DATABASE_URL, function(err, client) {
+  			if (err) throw err;
+			console.log('Connected to postgres! Getting schemas...');
+		
 
-			if (err) {
-				console.log("Error: Could not connect to DB");
-				console.log(err);
-				callback(err,null);
-			}
+  			client
+    			.query('SELECT table_schema,table_name FROM information_schema.tables;')
+    			.on('row', function(row) {
+      			console.log(JSON.stringify(row));
+    		});
+	    	
+	    });
+		
 
-		})
+
+	   //  var client = new pg.Client(connectionString);
+
+				// client.connect(function(err) {
+
+				// 	if (err) {
+				// 		console.log("Error: Could not connect to DB");
+				// 		console.log(err);
+				// 		callback(err,null);
+				// 	}
+
+				// })
+		
 
 		console.log("finding mentors for %s", hobby);
 
