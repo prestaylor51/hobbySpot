@@ -1,7 +1,7 @@
 // Model for getting the mentors from the database
 // Postgres
 var pg = require('pg');
-const connectionString = "postgres://postgres:danGer95@localhost:5432/hobbyspotdb";
+const connectionString = "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
 
 function getAllMentors(hobby,callback) {
 		

@@ -83,14 +83,16 @@ INSERT INTO hobby_mentor
 (hobby_id, mentor_id, greeting)
 VALUES
 (1, 2, 'Hello, I''m John. I love the game of chess. I played for 4 years i high school and competed in the state championship.'),
-(1, 3, 'Sup bros I love chess! I love to teach it too!');
+(1, 3, 'Sup bros I love chess! I love to teach it too!'),
+(2, 3, 'Sup bros, I''m all about programming in python. I am a professional programmer and want teach other about all of the cool things they can do through programming ');
 
 -- INSERT student_mentor --
 
 INSERT INTO student_mentor
 (student_id, mentor_id, hobby_id, active) 
 VALUES
-(1, 1, 1, 'true');
+(1, 2, 1, 'true'),
+(1, 3, 2, 'true');
 
 
 
