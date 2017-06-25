@@ -8,11 +8,19 @@
 -- grant usage, select on sequence student_mentor_id_seq to hobbyist;
 -- grant usage, select on sequence hobby_mentor_id_seq to hobbyist;
 
+-- GET MENTORS
 -- SELECT u.first, u.last, l.town, hm.mentor_id, h.name, hm.greeting FROM _user u 
 -- 	JOIN hobby_mentor hm ON u.id = hm.mentor_id
 -- 	JOIN hobby h ON h.id = hm.hobby_id
 -- 	JOIN location l ON u.location_id = l.id
 -- 	WHERE h.name = 'Chess'; 
+
+-- SIGN UP
+-- INSERT INTO _user
+-- (username, first, last, phone, email, location_id, password) 
+-- VALUES
+-- ();
+
 
 DROP TABLE location, hobby, _user, student_mentor, hobby_mentor	CASCADE;
 

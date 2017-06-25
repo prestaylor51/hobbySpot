@@ -9,8 +9,12 @@ console.log("creating User");
 
 	console.log(array);
 
-	signUpModel.addUser(array, function (err, result) {
-		console.log("callback");
+	signUpModel.addUser(array, function (err, newuser) {
+		if (err){
+			console.log("something went wrong with the model");
+		}
+		console.log(array['username'] + 'has been added to the database');
+		res.status(200).json(newuser);
 	});
 
 }
