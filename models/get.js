@@ -5,32 +5,33 @@ const connectionString = "postgres://postgres:danGer95@localhost:5432/hobbyspotd
 
 function getAllMentors(hobby,callback) {
 		
+		// for connecting to heroku database(not working)
+		
+		// pg.defaults.ssl = true;
+		// pg.connect('postgres://debpnomxrchkax:514699ac6ed5096200f17f062d603e66c77d13c6c084b4801fd53c2accb8d189@ec2-50-17-236-15.compute-1.amazonaws.com:5432/d18isi6cdbj0ld', function(err, client) {
+  // 			if (err) throw err;
+  // 			console.log('Connected to postgres! Getting schemas...');
 
-		pg.defaults.ssl = true;
-		pg.connect('postgres://debpnomxrchkax:514699ac6ed5096200f17f062d603e66c77d13c6c084b4801fd53c2accb8d189@ec2-50-17-236-15.compute-1.amazonaws.com:5432/d18isi6cdbj0ld', function(err, client) {
-  			if (err) throw err;
-  			console.log('Connected to postgres! Getting schemas...');
-
-  			client
-    			.query('SELECT table_schema,table_name FROM information_schema.tables;')
-    			.on('row', function(row) {
-      				console.log(JSON.stringify(row));
-    			});
-		});
+  // 			client
+  //   			.query('SELECT table_schema,table_name FROM information_schema.tables;')
+  //   			.on('row', function(row) {
+  //     				console.log(JSON.stringify(row));
+  //   			});
+		// });
 		
 
 
-	   //  var client = new pg.Client(connectionString);
+	    var client = new pg.Client(connectionString);
 
-				// client.connect(function(err) {
+				client.connect(function(err) {
 
-				// 	if (err) {
-				// 		console.log("Error: Could not connect to DB");
-				// 		console.log(err);
-				// 		callback(err,null);
-				// 	}
+					if (err) {
+						console.log("Error: Could not connect to DB");
+						console.log(err);
+						callback(err,null);
+					}
 
-				// })
+				})
 		
 
 		console.log("finding mentors for %s", hobby);
