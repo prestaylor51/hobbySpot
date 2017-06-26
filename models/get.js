@@ -8,7 +8,7 @@ function getAllMentors(hobby,callback) {
 		//for connecting to heroku database(not working)
 		
 		pg.defaults.ssl = true;
-		pg.connect('postgres://debpnomxrchkax:514699ac6ed5096200f17f062d603e66c77d13c6c084b4801fd53c2accb8d189@ec2-50-17-236-15.compute-1.amazonaws.com:5432/d18isi6cdbj0ld', function(err, client) {
+		pg.connect(process.env.DATABASE_URL, function(err, client) {
   			if (err) throw err;
   			console.log('Connected to postgres! Getting schemas...');
 
