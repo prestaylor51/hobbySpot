@@ -31,7 +31,7 @@ function getAllMentors(hobby,callback) {
 
 		var params = [hobby];
 
-		var query = client.query(sql, params, function(err, result) {
+		client.query(sql, params, function(err, result) {
 
 			client.end(function(err) {
 				if (err) throw err;
@@ -44,10 +44,8 @@ function getAllMentors(hobby,callback) {
 			}
 
 			console.log("Results: " + JSON.stringify(result.rows));
-			//callback(null, result.rows);
-		});
-
-		callback(null, query);		
+			callback(null, result.rows);
+		});		
 }
 
 module.exports = {
