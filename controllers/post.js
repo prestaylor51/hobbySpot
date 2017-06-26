@@ -13,7 +13,7 @@ console.log("creating User");
 		if (err){
 			console.log("something went wrong with the model");
 		}
-		console.log(array['username'] + 'has been added to the database');
+		console.log(array['username'] + ' has been added to the database');
 		res.status(200).json(newuser);
 	});
 

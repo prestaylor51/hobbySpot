@@ -45,11 +45,11 @@ function addUser(array, callback) {
 		}
 
 		console.log("Results: " + JSON.stringify(result.rows));
-		callback(null, result.rows);
+		//callback(null, result.rows);
 	});
 
 	
-	callback(null, array);
+	callback(null, query);
 
 }
 
