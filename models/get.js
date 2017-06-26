@@ -9,9 +9,13 @@ function getAllMentors(hobby,callback) {
 		//for connecting to heroku database
 		pg.defaults.ssl = true;
 		pg.connect(connectionString, function(err, client) {
-  			if (err) throw err;
-  			console.log('Connected to postgres! Getting schemas...');
+  			if (err){
+  				console.log("Error: Could not connect to DB");
+				console.log(err);
+				callback(err,null);
+  			} 
 
+  			console.log('Connected to postgres! Getting schemas...');
     		console.log("finding mentors for %s", hobby);
 
 			var sql = "SELECT u.first, u.last, l.town, hm.mentor_id, h.name, hm.greeting FROM _user u \
@@ -45,9 +49,7 @@ function getAllMentors(hobby,callback) {
 				// client.connect(function(err) {
 
 				// 	if (err) {
-				// 		console.log("Error: Could not connect to DB");
-				// 		console.log(err);
-				// 		callback(err,null);
+				// 		
 				// 	}
 
 				// })
