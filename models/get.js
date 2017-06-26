@@ -1,23 +1,16 @@
 // Model for getting the mentors from the database
 // Postgres
 var pg = require('pg');
-const connectionString = "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
+// const connectionString = "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
+const connectionString = process.env.DATABASE_URL;
 
 function getAllMentors(hobby,callback) {
 		
-		//for connecting to heroku database(not working)
-		
+		//for connecting to heroku database
 		pg.defaults.ssl = true;
-		pg.connect(process.env.DATABASE_URL, function(err, client) {
+		pg.connect(connectionString, function(err, client) {
   			if (err) throw err;
   			console.log('Connected to postgres! Getting schemas...');
-
-  			client
-    			.query('SELECT * FROM _user;')
-    			.on('row', function(row) {
-      				console.log(JSON.stringify(row));
-    			});
-
 
     		console.log("finding mentors for %s", hobby);
 
