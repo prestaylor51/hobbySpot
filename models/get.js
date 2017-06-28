@@ -4,10 +4,14 @@ var pg = require('pg');
 // const connectionString = "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
 const connectionString = process.env.DATABASE_URL;
 
+if (process.env.DATABASE_URL){
+	pg.defaults.ssl = true;
+}
+
 function getAllMentors(hobby,callback) {
 		
 		//for connecting to database
-		pg.defaults.ssl = true;
+		
 		var client = new pg.Client(connectionString);
 
 		client.connect(function(err) {

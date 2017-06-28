@@ -42,20 +42,20 @@ CREATE TABLE _user
  last   	VARCHAR(100)     NOT NULL,
  phone	    VARCHAR(10),
  email      VARCHAR(100)     NOT NULL,
- location_id   INT              REFERENCES location(id),
+ location_id   INT           NOT NULL  REFERENCES location(id),
  password	VARCHAR(80)      NOT NULL);
 
 CREATE TABLE hobby_mentor
 (id			    serial 		primary key,
- hobby_id		int 		references hobby(id),
- mentor_id		int 		references _user(id),
+ hobby_id		int 		NOT NULL references hobby(id),
+ mentor_id		int 		NOT NULL references _user(id),
  greeting		varchar(1000)	not null);
 
 CREATE TABLE student_mentor
 (id   			serial	primary key, 
- student_id  	int 	references _user(id) 		not null,
- mentor_id   	int		references hobby_mentor(id) 		not null,
- hobby_id       int		references hobby(id) 		not null,
+ student_id  	int 	NOT NULL references _user(id) 		not null,
+ mentor_id   	int		NOT NULL references hobby_mentor(id) 		not null,
+ hobby_id       int		NOT NULL references hobby(id) 		not null,
  active		bool		not null);
 
 
