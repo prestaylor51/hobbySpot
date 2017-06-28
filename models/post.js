@@ -22,7 +22,7 @@ function addUser(array, callback) {
 	var sql = "INSERT INTO _user \
 			  (username, first, last, phone, email, location_id, password) \
 			  VALUES \
-			  ($1::text, $2::text, $3::text, $4::text, $5::text, $6, $7::text);"
+			  ($1::text, $2::text, $3::text, $4::text, $5::text, $6::int, $7::text);"
 
 	var params = [array['username'], 
 				array['first'], 
