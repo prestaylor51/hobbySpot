@@ -1,12 +1,11 @@
 // Model for getting the mentors from the database
 // Postgres
 var pg = require('pg');
-// const connectionString = "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
-const connectionString = process.env.DATABASE_URL;
-
 if (process.env.DATABASE_URL){
 	pg.defaults.ssl = true;
 }
+var connectionString = process.env.DATABASE_URL || "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
+
 
 function getAllMentors(hobby,callback) {
 		
