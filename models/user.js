@@ -5,6 +5,8 @@ if (process.env.DATABASE_URL){
 }
 var connectionString = process.env.DATABASE_URL || "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
 
+
+// ADD USER
 function addUser(array, callback) {
 
 	// Connect to the database

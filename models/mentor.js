@@ -6,8 +6,9 @@ if (process.env.DATABASE_URL){
 }
 var connectionString = process.env.DATABASE_URL || "postgres://postgres:postgres@localhost:5432/hobbyspotdb";
 
-
-function getAllMentors(hobby,callback) {
+/* GET ALL MENTORS
+	Return all of the mentors form DB*/
+function getAllMentors(hobby,callback) {	
 		
 		//for connecting to database
 		
@@ -51,6 +52,51 @@ function getAllMentors(hobby,callback) {
 		});		
 }
 
+/* SIGN MENTOR
+	Insert user into the hobby_mentor table*/
+function signMentor(array, callback) {
+	//for connecting to database
+	var client = new pg.Client(connectionString);
+
+	client.connect(function(err) {
+
+		if (err) {
+			console.log("Error: Could not connect to DB");
+			console.log(err);
+			callback(err);
+		}
+
+	});
+
+	// Prepare query for the hobby_mentor table
+	var sql = "INSERT INTO hobby_mentor\
+				(hobby_id, mentor_id, greeting)\
+				VALUES\
+				($1::int, $2::int, $3::text);"
+
+	var params = [array['hobby'],
+					array['mentor'],
+					array['greeting']];
+
+	// Make insertion
+	client.query(sql, params, function(err, result) {
+
+		client.end(function(err) {
+			if (err) throw err;
+		});
+
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			callback(err, null);
+		}
+
+		console.log("Results: " + JSON.stringify(result));
+		callback(null, result);
+	});	
+
+}
 module.exports = {
-		getAllMentors: getAllMentors
+		getAllMentors: getAllMentors,
+		signMentor: signMentor
 }

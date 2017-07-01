@@ -1,8 +1,9 @@
 // Controller for getting mentor list from the database
 
-// GETTING MENTORS
-var mentorModel = require('../models/get.js');
+// Require model
+var mentorModel = require('../models/mentor.js');
 
+// HANDLE MENTORS
 function handleMentors(req, res) {
 
 	console.log('getting mentors');
@@ -24,6 +25,21 @@ function handleMentors(req, res) {
 }
 //////////////////////////////////////////////////////////////
 
+// SIGN UP MENTOR
+function signUpMentor(req, res) {
+	console.log("signing up mentor");
+
+	var array = req.body
+
+	console.log("greeting: %s", array['greeting']);
+
+	mentorModel.signMentor(array, function(err, result) {
+		console.log("done signing mentor")
+	}); 
+}
+//////////////////////////////////////////////////////////////
+
 module.exports = {
 		handleMentors: handleMentors,
+		signUpMentor: signUpMentor
 }

@@ -21,6 +21,9 @@
 -- VALUES
 -- ();
 
+-- Get Students (according to mentor)
+-- SELECT * FROM _user u
+-- JOIN student_mentor sm ON sm.student_id = u.id AND sm.mentor_id = $mentor;
 
 DROP TABLE location, hobby, _user, student_mentor, hobby_mentor	CASCADE;
 
@@ -57,9 +60,6 @@ CREATE TABLE student_mentor
  mentor_id   	int		NOT NULL references hobby_mentor(id) 		not null,
  hobby_id       int		NOT NULL references hobby(id) 		not null,
  active		bool		not null);
-
-
-
 
 -- INSERT location --
 

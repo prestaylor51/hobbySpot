@@ -1,5 +1,5 @@
 // SIGN UP
-var signUpModel = require('../models/post.js');
+var userModel = require('../models/user.js');
 
 function createUser(req, res) {
 
@@ -9,7 +9,7 @@ console.log("creating User");
 
 	console.log(array);
 
-	signUpModel.addUser(array, function (err, newuser) {
+	userModel.addUser(array, function (err, newuser) {
 		if (err){
 			console.log("something went wrong with the model");
 		}

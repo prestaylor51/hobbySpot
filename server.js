@@ -2,8 +2,9 @@ var express = require('express');
 var app = express();
 
 // Controllers
-var getController = require('./controllers/get.js')
-var postController = require('./controllers/post.js')
+var mentorControl = require('./controllers/mentor.js');
+var userControl = require('./controllers/user.js');
+var studentControl = require('./controllers/student.js');
 
 // Set port
 app.set('port', (process.env.PORT || 5000));
@@ -27,14 +28,16 @@ app.get('/', function(request, response) {
 });
 
 // GETS
-app.get('/getMentors', getController.handleMentors);
-// /getStudent
+app.get('/getMentors', mentorControl.handleMentors);
+app.get('/getStudents', studentControl.handleStudents);
+// /getSingleStudent
 // /getHobby
 // /getSingleMentor
 // /signIn
 
 // POSTS
-app.post('/signUp', postController.createUser);
+app.post('/signUp', userControl.createUser);
+app.post('/signUpMentor', mentorControl.signUpMentor);
 // /submitHobby
 // /contactMentor
 // /signUpForMentor
