@@ -21,6 +21,8 @@ function handleHobbies(req, res) {
 
 }
 
+/* HANDLE HOBBY
+	Gets the details of one hobby to display to the user*/
 function handleHobby(req, res) {
 	console.log("getting hobby");
 
