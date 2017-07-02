@@ -13,7 +13,7 @@
 	
 </head>
 <body>
-	<h1>Welcome to Hobby Spot</h1>
+	<h1>Welcome to HobbySpot</h1>
 	<ul class="nav nav-tabs">
 	  <li class="active"><a data-toggle="tab" href="#studentMenu">Student</a></li>
 	  <li><a data-toggle="tab" href="#mentorMenu">Mentor</a></li>
@@ -25,22 +25,27 @@
 
 	<div class="tab-content">
 		
-		<div id="studentMenu" class="tab-pane fade">
-			<input type="text" id="hobby">
-			<!-- <input type="button" onclick="getMentors()" id="hobbyBtn" value="find Mentors"> -->
-
-			<button type="button" onclick="getMentors()">Get Mentors</button>
+		<div id="studentMenu" class="tab-pane fade in active">
+			
 			
 		</div>
 
-S
 		<div id="mentorMenu" class="tab-pane fade">
 			
 		</div>
 
 		<div id="searchMenu" class="tab-pane fade">
 			
+			<input type="text" id="hobby">
+			<!-- <input type="button" onclick="getMentors()" id="hobbyBtn" value="find Mentors"> -->
 
+			<button type="button" onclick="getMentors()">Get Mentors</button>
+
+			<div id="listMentors">
+				<ul id="mentorListResults">
+				</ul>
+				
+			</div>
 
 		</div>
 
