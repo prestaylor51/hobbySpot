@@ -4,7 +4,7 @@ var studentmodel = require('../models/student.js');
 // HANDLE STUDENTS
 function handleStudents(req, res) {
 	console.log("getting students");
-	var mentor = req.query.mentor
+	var mentor = req.query.mentor;
 
 	console.log("mentor %s = ", mentor)
 	studentmodel.getStudents(mentor, function (err, result) {

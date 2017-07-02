@@ -5,6 +5,7 @@ var app = express();
 var mentorControl = require('./controllers/mentor.js');
 var userControl = require('./controllers/user.js');
 var studentControl = require('./controllers/student.js');
+var hobbyControl = require('./controllers/hobby.js');
 
 // Set port
 app.set('port', (process.env.PORT || 5000));
@@ -30,8 +31,9 @@ app.get('/', function(request, response) {
 // GETS
 app.get('/getMentors', mentorControl.handleMentors);
 app.get('/getStudents', studentControl.handleStudents);
+app.get('/getHobbies', hobbyControl.handleHobbies);
+app.get('/getHobby', hobbyControl.handleHobby);
 // /getSingleStudent
-// /getHobby
 // /getSingleMentor
 // /signIn
 
