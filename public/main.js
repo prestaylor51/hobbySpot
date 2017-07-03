@@ -23,16 +23,16 @@ function getMentors() {
 
 function updateListMentors(data) {
 	
-	if (data.Search && data.Search.length > 0) {
+	if (data) {
 		var mentorList = $("#mentorListResults");
 		mentorList.empty();
 
 		console.log("updateListMentors");
-		console.log(data.Search[0].first);
+		console.log(data[0].first);
 
-		for (var i = 0; i < data.Search.length; i++) {
+		for (var i = 0; i < data.length; i++) {
 
-			var mentorName = data.Search[i].first;
+			var mentorName = data[i].first;
 
 			mentorList.append("<li><p>" + mentorName + "</p></li>");
 
