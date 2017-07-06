@@ -46,7 +46,7 @@ CREATE TABLE _user
  phone	    VARCHAR(10),
  email      VARCHAR(100)     NOT NULL,
  location_id   INT           NOT NULL  REFERENCES location(id),
- password	VARCHAR(80)      NOT NULL);
+ password	VARCHAR(255)      NOT NULL);
 
 CREATE TABLE hobby_mentor
 (id			    serial 		primary key,

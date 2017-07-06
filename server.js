@@ -33,9 +33,9 @@ app.get('/getMentors', mentorControl.handleMentors);
 app.get('/getStudents', studentControl.handleStudents);
 app.get('/getHobbies', hobbyControl.handleHobbies);
 app.get('/getHobby', hobbyControl.handleHobby);
+app.get('/signIn', userControl.handleSignIn);
 // /getSingleStudent
 // /getSingleMentor
-// /signIn
 
 // POSTS
 app.post('/signUp', userControl.createUser);

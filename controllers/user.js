@@ -1,6 +1,8 @@
 // SIGN UP
 var userModel = require('../models/user.js');
 
+/* CREATE USER
+*/
 function createUser(req, res) {
 
 console.log("creating User");
@@ -19,6 +21,20 @@ console.log("creating User");
 
 }
 
+/* HANDLE SIGN IN
+*/
+function handleSignIn(req, res){
+	var credsArray = req.body;
+
+	console.log(credsArray);
+
+	userModel.checkUserCred(credsArray, function(err, username) {
+
+	});
+
+}
+
 module.exports = {
-		createUser: createUser
+		createUser: createUser,
+		handleSignIn: handleSignIn
 }

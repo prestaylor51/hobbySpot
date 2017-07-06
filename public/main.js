@@ -1,5 +1,5 @@
 
-
+/* GET MENTORS*/
 function getMentors() {
 	var hobbyStr = $("#hobby").val();
 
@@ -21,6 +21,7 @@ function getMentors() {
 
 }
 
+/* UPDATE LIST MENTORS*/
 function updateListMentors(data) {
 	
 	if (data) {
@@ -41,3 +42,12 @@ function updateListMentors(data) {
 
 }
 
+/* SIGN IN USER*/
+function signInUser() {
+
+	var username = $('#username').val();
+	var password = $('#password').val();
+
+	console.log("in main.js");
+
+}
