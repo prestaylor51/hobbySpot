@@ -36,7 +36,6 @@ function updateListMentors(data) {
 			var mentorName = data[i].first;
 
 			mentorList.append("<li><p>" + mentorName + "</p></li>");
-
 		}
 	}
 
@@ -48,6 +47,27 @@ function signInUser() {
 	var username = $('#username').val();
 	var password = $('#password').val();
 
+	console.log(username);
+	console.log(password);
 	console.log("in main.js");
+
+	var params = {username: username, password: password};
+
+	console.log(params);
+
+	$.post("/signIn", params, function(data, status) {
+		console.log("back from controller");
+		
+		console.log(data);
+
+		if(data == true){
+			console.log("password is valid");
+		}
+		else{
+			console.log("password is invalid");
+		}	
+
+
+	})
 
 }

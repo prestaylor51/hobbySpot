@@ -24,12 +24,15 @@ console.log("creating User");
 /* HANDLE SIGN IN
 */
 function handleSignIn(req, res){
-	var credsArray = req.body;
 
+	var credsArray = req.body;
+	console.log("req.body = %s",req.body);
 	console.log(credsArray);
 
-	userModel.checkUserCred(credsArray, function(err, username) {
-
+	userModel.checkUserCred(credsArray, function(err, valid) {
+		console.log("done with checkusercreds()");
+		console.log(valid);
+		res.status(200).json(valid);
 	});
 
 }

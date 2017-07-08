@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+
 // Controllers
 var mentorControl = require('./controllers/mentor.js');
 var userControl = require('./controllers/user.js');
@@ -33,13 +34,14 @@ app.get('/getMentors', mentorControl.handleMentors);
 app.get('/getStudents', studentControl.handleStudents);
 app.get('/getHobbies', hobbyControl.handleHobbies);
 app.get('/getHobby', hobbyControl.handleHobby);
-app.get('/signIn', userControl.handleSignIn);
+
 // /getSingleStudent
 // /getSingleMentor
 
 // POSTS
 app.post('/signUp', userControl.createUser);
 app.post('/signUpMentor', mentorControl.signUpMentor);
+app.post('/signIn', userControl.handleSignIn);
 // /submitHobby
 // /contactMentor
 // /signUpForMentor
