@@ -1,4 +1,5 @@
 
+
 /* GET MENTORS*/
 function getMentors() {
 	var hobbyStr = $("#hobby").val();
@@ -62,6 +63,7 @@ function signInUser() {
 
 		if(data == true){
 			console.log("password is valid");
+			window.location.replace("main.html");
 		}
 		else{
 			console.log("password is invalid");
@@ -69,5 +71,15 @@ function signInUser() {
 
 
 	})
+
+}
+
+
+function logout() {
+
+	$.get("/logOut", function(status) {
+
+	});
+	window.location.replace("signIn.html");
 
 }

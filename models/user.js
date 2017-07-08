@@ -87,7 +87,6 @@ function checkUserCred(credsArray, callback) {
 			console.log("The query failed");
 		}
 		console.log("Results: " + JSON.stringify(result.rows));
-
 		var hash = result.rows[0]['password'];
 
 		console.log("hash of 0: ", result.rows[0]['password']);

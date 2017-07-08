@@ -32,6 +32,13 @@ function handleSignIn(req, res){
 	userModel.checkUserCred(credsArray, function(err, valid) {
 		console.log("done with checkusercreds()");
 		console.log(valid);
+
+		// Set session var if login is successful
+		if(valid == true) {
+			console.log("creating session var");
+			req.session.user = credsArray['username'];
+		}
+
 		res.status(200).json(valid);
 	});
 
