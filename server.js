@@ -99,7 +99,7 @@ app.listen(app.get('port'), function() {
 function logout(req, res) {
 	console.log("logging out");
 	req.session.destroy();
-	//res.redirect('signIn.html');
+	res.redirect('signIn.html');
 }
 
 

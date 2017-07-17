@@ -2,20 +2,88 @@
 <html>
 <head>
 	<title>Hobby Spot Sign Up</title>
+	<meta charset="utf-8"/>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 	<h1>Hobbt Spot Sign Up</h1>
 	<form method="post" action="/signUp">
-		
-		username <input type="text" name="username"><br/>
-		first <input type="text" name="first"><br/>
-		last <input type="text" name="last"><br/>
-		phone <input type="text" name="phone"><br/>
-		email <input type="text" name="email"><br/>
-		location <input type="number" name="location"><br/>
-		password <input type="text" name="password">
+		<div class="container">
+			<div class="row">
+					<div class="col-sm-1">
+						<label for="username">username</label>
+					</div>
+					<div class="col-sm-11">
+						<input type="text" name="username" id="username"><br/>
+					</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="first">first</label>
+				</div>
+				<div class="col-sm-11">
+					<input type="text" name="first" id="first"><br/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="last">last</label>
+				</div>
+				<div class="col-sm-11">
+					<input type="text" name="last" id="last"><br/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="phone">phone</label>
+				</div>
+				<div class="col-sm-11">
+					<input type="text" name="phone" id="phone"><br/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="email">email</label>
+				</div>
+				<div class="col-sm-11">
+					<input type="text" name="email" id="email"><br/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="location">location</label>
+				</div>
+				<div class="col-sm-11">
+					<input type="number" name="location" id="location"><br/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-1">
+					<label for="password">password</label>
+				</div>
+				<div class="col-sm-11">
+					<input type="password" name="password" id="password">
+				</div>
+			</div>
+			<button type="submit">Create User Account</button>
+			
+
+			
+		</div>
 		<br/><br/>
-		<button type="submit">Create User Account</button>
+		
 		
 	</form>
 

@@ -34,9 +34,10 @@ function updateListMentors(data) {
 
 		for (var i = 0; i < data.length; i++) {
 
-			var mentorName = data[i].first;
+			var mentorFirst = data[i].first;
+			var mentorLast	= data[i].last;
 
-			mentorList.append("<li><p>" + mentorName + "</p></li>");
+			mentorList.append("<li><p>" + mentorFirst + " " + mentorLast + "</p></li>");
 		}
 	}
 
@@ -78,8 +79,9 @@ function signInUser() {
 function logout() {
 
 	$.get("/logOut", function(status) {
-
+		console.log("logged out");
 	});
+
 	window.location.replace("signIn.html");
 
 }
