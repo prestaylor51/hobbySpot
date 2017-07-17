@@ -3,6 +3,8 @@ var app = express();
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 
+
+
 // Controllers
 var mentorControl = require('./controllers/mentor.js');
 var userControl = require('./controllers/user.js');
@@ -14,7 +16,7 @@ app.set('port', (process.env.PORT || 5000));
 
 // Body Parser
 var bodyParser = require('body-parser');
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use( bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
@@ -22,24 +24,41 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 // Static files
 app.use(express.static(__dirname + '/public'));
 
-// Middleware
+// Middleware express session
 app.use(require('morgan')('dev'));
 app.use(session({
-	name: 'server-session-cookie-id',
+	// name: 'server-session-cookie-id',
 	secret: 'myExpressSecret',
 	saveUninitialized: true,
   	resave: true,
-  	store: new FileStore()
+  	// store: new FileStore()
 }));
 app.use(function printSession(req, res, next) {
   console.log('req.session', req.session);
   return next();
 });
 
+// Heroku
+// app.use(cookieParser(config.cookie_secret))
+// app.use(sessions(config.redis_url, config.cookie_secret));
+// var RedisStore = require('connect-redis')(expressSession);
+
+// module.exports = function Sessions(url, secret) {
+//   var store = new RedisStore({ url: url });
+//   var session = expressSession({
+//     secret: secret,
+//     store: store,
+//     resave: true,
+//     saveUninitialized: true
+//   });
+
+//   return session;
+// };
+
 // views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-
+              
 app.get('/', function(request, response) {
 	
 	if (request.session.user){
