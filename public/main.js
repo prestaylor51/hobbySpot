@@ -80,8 +80,17 @@ function logout() {
 
 	$.get("/logOut", function(status) {
 		console.log("logged out");
+		console.log("status: ", status)
 	});
 
 	window.location.replace("signIn.html");
 
+}
+
+function checkUser() {
+	$.get("/checkUser", function(status){
+
+		console.log("checked user session");
+		console.log("status: ", status);
+	})
 }

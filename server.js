@@ -78,6 +78,7 @@ app.get('/getStudents', studentControl.handleStudents);
 app.get('/getHobbies', hobbyControl.handleHobbies);
 app.get('/getHobby', hobbyControl.handleHobby);
 app.get('/logOut', logout);
+app.get('/checkUser', checkUser)
 
 // /getSingleStudent
 // /getSingleMentor
@@ -102,4 +103,13 @@ function logout(req, res) {
 	res.redirect('signIn.html');
 }
 
-
+function checkUser(req, res) {
+	if (req.session.user){
+		console.log("user exists")
+		res.redirect('main.html');
+	}
+	else{
+		console.log("no user")
+		res.redirect('signIn.html');
+	}
+}
