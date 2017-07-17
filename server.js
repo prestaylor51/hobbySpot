@@ -27,11 +27,11 @@ app.use(express.static(__dirname + '/public'));
 // Middleware express session
 app.use(require('morgan')('dev'));
 app.use(session({
-	// name: 'server-session-cookie-id',
+	name: 'server-session-cookie-id',
 	secret: 'myExpressSecret',
 	saveUninitialized: true,
   	resave: true,
-  	// store: new FileStore()
+  	store: new FileStore()
 }));
 app.use(function printSession(req, res, next) {
   console.log('req.session', req.session);
