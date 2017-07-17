@@ -80,7 +80,7 @@ function logout() {
 
 	$.get("/logOut", function(status) {
 		console.log("logged out");
-		console.log("status: ", status)
+		//console.log("status: ", status)
 	});
 
 	window.location.replace("signIn.html");
@@ -91,6 +91,25 @@ function checkUser() {
 	$.get("/checkUser", function(status){
 
 		console.log("checked user session");
-		console.log("status: ", status);
+		//console.log("status: ", status);
+	})
+}
+
+function populateBrowser() {
+
+	var select = $('#browsehobbies');
+	select.empty();
+
+	$.get('/getHobbies', function(hobbydata) {
+		console.log(hobbydata);
+
+		for (var i = 0; i < hobbydata.length; i++) {
+
+			var hobby = hobbydata[i].name;
+			var description	= hobbydata[i].description;
+
+			select.append('<option value=\'' + hobby + '\'>' + hobby + '</option>');
+		}
+
 	})
 }
